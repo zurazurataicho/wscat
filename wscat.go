@@ -34,7 +34,9 @@ func (wscat *wscatConfig) run() {
 
 	// WebSocket packet sender.
 	go func() {
-		defer wscat.Reader.Close()
+		if wscat.Reader != os.Stdin {
+			defer wscat.Reader.Close()
+		}
 		scanner := bufio.NewScanner(wscat.Reader)
 		for scanner.Scan() {
 			text := scanner.Text()
@@ -46,6 +48,9 @@ func (wscat *wscatConfig) run() {
 	}()
 
 	// WebSocket packet receiver.
+	if wscat.Writer != os.Stdout {
+		defer wscat.Writer.Close()
+	}
 	for {
 		var wsMessage string
 		if err := websocket.Message.Receive(wscat.Conn, &wsMessage); err != nil {
