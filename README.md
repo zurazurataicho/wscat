@@ -1,6 +1,7 @@
 # wscat - WebSocket cat
 ## Abstract
-I would like to use [wscat](https://github.com/websockets/wscat) on macOS, but this requires to install Node.js. So I decide to make the same command without Node.js. And I am learning Golang. This is a chance to learn more Golang through making this command.
+I would like to use [wscat](https://github.com/websockets/wscat) on macOS, but this requires to install Node.js.
+So I decide to make the same command without Node.js. And I am learning Golang. This is a chance to learn more Golang through making this command.
 
 ## Build
 
